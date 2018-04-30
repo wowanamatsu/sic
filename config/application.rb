@@ -15,5 +15,15 @@ module SIC
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
+
+
+    #to skip assets, scaffolds.css, test framework, helpers, view
+		config.generators do |g|
+		  #g.template_engine nil #to skip views
+		  g.test_framework  nil #to skip test framework
+		  g.assets  false
+		  g.helper false
+		  g.stylesheets false
+		end
   end
 end

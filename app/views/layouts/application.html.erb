@@ -4,12 +4,14 @@
     <title>SIC</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <% dev = 'http://localhost:3000/' %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/custom.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= dev %>/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= dev %>/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= dev %>/css/custom.min.css">
+
   </head>
 
   <body class="nav-md">
@@ -18,7 +20,9 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gecamp - SIC</span></a>
+              <%= link_to root_path, class: 'site_title' do %>
+                <i class="fa fa-paw"></i> <span>Gecamp - SIC</span>
+              <% end %>
             </div>
 
             <div class="clearfix"></div>
@@ -59,12 +63,9 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Cadastros do Sistema <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Cadastrar Usuário</a></li>
-                      <li><a href="#">Cadastrar Pais</a></li>
-                      <li><a href="#">Cadastrar Estado</a></li>
-                      <li><a href="#">Cadastrar Município</a></li>
-                      <li><a href="#">Cadastrar Cidade</a></li>
-                      <li><a href="#">Cadastrar Bairro</a></li>
+                      <li>
+                        <%= link_to 'Pais', paises_path %>
+                      </li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
@@ -122,7 +123,9 @@
                         <span>Settings</span>
                       </a>
                     </li>
-                    <li><a href="javascript:;">Help</a></li>
+                    <li>
+                      <%= link_to 'Ajuda', ajuda_path %>
+                    </li>
                     <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
@@ -200,51 +203,9 @@
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Plain Page</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="clearfix"></div>
-
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Plain Page</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                       <%= yield %>
-                  </div>
-                </div>
+                <%= yield %>
               </div>
             </div>
           </div>
@@ -262,8 +223,9 @@
       </div>
     </div>
    
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/custom.min.js"></script>
+    <script src="<%= dev %>/js/jquery.min.js"></script>
+    <script src="<%= dev %>/js/bootstrap.min.js"></script>
+    <script src="<%= dev %>/js/custom.min.js"></script>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>
