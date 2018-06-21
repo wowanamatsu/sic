@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+	<li>
+		<%= user.name %>
+	</li>
+<% end %>
+
+<hr>
+<%= link_to 'Novo', new_user_path %>
