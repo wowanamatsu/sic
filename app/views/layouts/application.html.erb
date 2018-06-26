@@ -4,13 +4,12 @@
     <title>SIC</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <% dev = 'http://localhost:3000/' %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="<%= dev %>/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<%= dev %>/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="<%= dev %>/css/custom.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= url %>css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= url %>css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= url %>css/custom.min.css">
 
   </head>
 
@@ -30,12 +29,12 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<%= url %>images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Bem vindo,</span>
-                <h2>John Doe</h2>
                 <% if current_user %>
+                <h2><%= current_user.name %></h2>
                 <%= link_to "Log out", sign_out_path, method: "delete", class: 'btn btn-sm btn-success' %>
                 <% end %>
               </div>
@@ -115,7 +114,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="<%= url %>images/img.jpg" alt="">John Doe
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -141,7 +140,7 @@
                   <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="<%= url %>images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -153,7 +152,7 @@
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="<%= url %>images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -165,7 +164,7 @@
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="<%= url %>images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -177,7 +176,7 @@
                     </li>
                     <li>
                       <a>
-                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                        <span class="image"><img src="<%= url %>images/img.jpg" alt="Profile Image" /></span>
                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -226,9 +225,9 @@
       </div>
     </div>
    
-    <script src="<%= dev %>/js/jquery.min.js"></script>
-    <script src="<%= dev %>/js/bootstrap.min.js"></script>
-    <script src="<%= dev %>/js/custom.min.js"></script>
+    <script src="<%= url %>js/jquery.min.js"></script>
+    <script src="<%= url %>js/bootstrap.min.js"></script>
+    <script src="<%= url %>js/custom.min.js"></script>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
